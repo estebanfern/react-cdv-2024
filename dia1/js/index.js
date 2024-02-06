@@ -1,33 +1,25 @@
+import React from 'https://esm.sh/react@18.2.0';
+import ReactDOM from 'https://esm.sh/react-dom@18.2.0/client';
 
-function raizPositiva(a, b, c) {
-    let result = (b*-1 + Math.sqrt(b*b - 4*a*c))/2*a;
-    return result;
-}
+let mainDiv = document.getElementById('root');
 
-console.log(raizPositiva(1, 5, 6));
+let root = ReactDOM.createRoot(mainDiv);
 
-const raizNegativa = (a, b, c) => {
-    let result = (b*-1 - Math.sqrt(b*b - 4*a*c))/2*a;
-    return result;
-}
 
-console.log(raizNegativa(1, 5, 6));
+let button = document.getElementById('boton');
+button.addEventListener('click', () => {
+    // let elemento = document.getElementById('primerTitulo');
+    // let cadena = 'Texto agregado!'
+    // elemento.innerHTML = `
+        // <p>Esta es la cadena ingresada:</p>
+        // <p>${cadena}</p>
+    // `;
 
-function agregarTexto(id, cadena) {
-    let elemento = document.getElementById(id);
-    elemento.innerHTML = `
-        <p>Esta es la cadena ingresada:</p>
-        <p>${cadena}</p>
-    `;
-}
+    let h1 = React.createElement('h1', null, 'Hola mundo!');
+    let h2 = React.createElement('h1', null, 'Curso de React');
 
-const MAX = 100;
-const MIN = 1;
-let randomBtn = document.getElementById('randomBtn');
+    let contenedor = React.createElement(React.Fragment, null, [h1, h2]);
 
-randomBtn.onclick = function(event) {
-    let contadorId = randomBtn.getAttribute('contador-id');
-    let contador = document.getElementById(contadorId);
-    let valor = Math.floor(Math.random() * MAX + MIN);
-    contador.innerHTML = valor;
-}
+    root.render(contenedor);
+
+});
